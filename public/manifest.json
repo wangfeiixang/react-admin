@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "数据管理平台",
+  "name": "React 数据管理平台",
   "icons": [
     {
       "src": "favicon.ico",
