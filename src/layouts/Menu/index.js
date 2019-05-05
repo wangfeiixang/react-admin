@@ -1,16 +1,19 @@
 import React from 'react'
+import  './Menu.less'
 import { Menu, Icon } from 'antd'
 
 const SubMenu = Menu.SubMenu
 
 class MenuNav extends React.Component {
-  state = {
-    collapsed: false,
-    openKeys: [],
-    theme: 'dark'
+  constructor(props){
+    super(props)
+    this.state = {
+      openKeys: [],
+      theme: 'dark'
+    }
   }
-
-  rootSubmenuKeys = ['sub1', 'sub2', 'sub4']
+  
+  rootSubmenuKeys = ['sub1', 'sub2']
 
   onOpenChange = (openKeys) => {
     const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
@@ -25,13 +28,13 @@ class MenuNav extends React.Component {
 
   render () {
     return (
-      <div style={{ width: 256 }}>
+      <div className="layout-menu" style={{ width: this.props.isCollapsed ? 'auto' : 256 }}>
         <Menu
           mode="inline"
           openKeys={this.state.openKeys}
           onOpenChange={this.onOpenChange}
           theme={this.state.theme}
-          inlineCollapsed={this.state.collapsed}
+          inlineCollapsed={this.props.isCollapsed}
         >
           <Menu.Item key="1">
             <Icon type="pie-chart" />

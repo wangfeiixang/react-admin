@@ -28,6 +28,7 @@ class Header extends React.Component {
     this.setState({ 
       menuFoldSwitch : !this.state.menuFoldSwitch
      })
+    this.props.changeCollapse(this.state.menuFoldSwitch)
   }
 
   render () {
@@ -45,7 +46,7 @@ class Header extends React.Component {
       <div className="layout-header">
         <div className="layuut-header-left" >
           {/* <span className="layout-header-menu">menu:</span> */}
-          <Icon onClick={this.menuFold} style={{color: this.state.menuFoldSwitch ? '#fff': 'gold', marginRight: '10px', fontSize: '16px'}} type={this.state.menuFoldSwitch ? 'menu-fold' : 'menu-unfold'} />
+          <Icon onClick={this.menuFold.bind(this)} style={{color: this.state.menuFoldSwitch ? '#fff': 'gold', marginRight: '10px', fontSize: '16px'}} type={this.state.menuFoldSwitch ? 'menu-fold' : 'menu-unfold'} />
         </div>
         <div className="layuut-header-right">
           <Dropdown 
