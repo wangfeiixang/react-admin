@@ -5,24 +5,24 @@ import { Menu, Icon } from 'antd'
 const SubMenu = Menu.SubMenu
 
 class MenuNav extends React.Component {
-  constructor(props){
+  constructor (props) {
     super(props)
     this.state = {
       openKeys: [],
       theme: 'dark'
     }
   }
-  
+
   rootSubmenuKeys = ['sub1', 'sub2']
 
   onOpenChange = (openKeys) => {
-    const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
+    const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1)
     if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-      this.setState({ openKeys });
+      this.setState({ openKeys })
     } else {
       this.setState({
-        openKeys: latestOpenKey ? [latestOpenKey] : [],
-      });
+        openKeys: latestOpenKey ? [latestOpenKey] : []
+      })
     }
   }
 

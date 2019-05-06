@@ -1,5 +1,5 @@
 import React from 'react'
-import './Header.less' 
+import './Header.less'
 import { Menu, Dropdown, Icon } from 'antd'
 
 class Header extends React.Component {
@@ -8,10 +8,10 @@ class Header extends React.Component {
     dropDownShow: false,
     menuFoldSwitch: true
   }
-  /* 
+  /*
   *  组件内部设置默认 props 属性
   */
-  static defaultProps = { 
+  static defaultProps = {
     user: 'admin'
   }
 
@@ -25,9 +25,9 @@ class Header extends React.Component {
   }
 
   menuFold = ()=>{
-    this.setState({ 
+    this.setState({
       menuFoldSwitch : !this.state.menuFoldSwitch
-     })
+    })
     this.props.changeCollapse(this.state.menuFoldSwitch)
   }
 
@@ -49,7 +49,7 @@ class Header extends React.Component {
           <Icon onClick={this.menuFold.bind(this)} style={{color: this.state.menuFoldSwitch ? '#fff': 'gold', marginRight: '10px', fontSize: '16px'}} type={this.state.menuFoldSwitch ? 'menu-fold' : 'menu-unfold'} />
         </div>
         <div className="layuut-header-right">
-          <Dropdown 
+          <Dropdown
             overlay={menu}
             onVisibleChange={this.handleVisibleChange}
             overlayClassName="layout-header-dropdown"
