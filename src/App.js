@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
+import Myrouter from './router'
 import Header from './layouts/Header/'
 import MenuNav from './layouts/Menu/'
 import './App.less'
-
-import { Button } from 'antd'
 
 class App extends Component {
   constructor (props) {
@@ -24,8 +24,7 @@ class App extends Component {
         <div className="layout-content">
           <MenuNav isCollapsed= {this.state.menuCollapsed}/>
           <div className="layout-contentR">
-            <h3>2222--{this.state.menuCollapsed}</h3>
-            <Button type="primary">Primary</Button>
+            <Myrouter/>
           </div>
         </div>
         <div className="layout-footer">
@@ -36,4 +35,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withRouter(App)

@@ -1,8 +1,34 @@
 import React from 'react'
-import  './Menu.less'
+import {Link} from 'react-router-dom'
 import { Menu, Icon } from 'antd'
+import  './Menu.less'
 
 const SubMenu = Menu.SubMenu
+
+const muneList = [
+  {
+    icon: 'pie-chart',
+    key: '/',
+    title: 'echarts',
+    children: [
+      {
+        icon: 'bar-chart',
+        key: '/barChart',
+        title: '柱状图'
+      },
+      {
+        icon: 'line-chart',
+        key: '/lineChart',
+        title: '折线图'
+      }
+    ]
+  },
+  {
+    icon: 'fund',
+    key: '/highcharts',
+    title: 'highcharts'
+  }
+]
 
 class MenuNav extends React.Component {
   constructor (props) {
@@ -11,6 +37,36 @@ class MenuNav extends React.Component {
       openKeys: [],
       theme: 'dark'
     }
+  }
+
+  renderMenuItem = ({key, icon, title}) => {
+    return (
+      <Menu.Item key={key}>
+        <Link to={key}>
+          {icon && <Icon type={icon}/>}
+          <span>{title}</span>
+        </Link>
+      </Menu.Item>
+    )
+  }
+
+  renderSubMenu=({key, icon, title, children})=>{
+    return (
+      <SubMenu key={key} title={<span><Icon type={icon} /><span>{title}</span></span>}>
+        {
+          children.map((item)=>{
+            return (
+              <Menu.Item key={item.key}>
+                <Link to={item.key}>
+                  {icon && <Icon type={item.icon}/>}
+                  <span>{item.title}</span>
+                </Link>
+              </Menu.Item>
+            )
+          })
+        }
+      </SubMenu>
+    )
   }
 
   rootSubmenuKeys = ['sub1', 'sub2']
@@ -36,32 +92,11 @@ class MenuNav extends React.Component {
           theme={this.state.theme}
           inlineCollapsed={this.props.isCollapsed}
         >
-          <Menu.Item key="1">
-            <Icon type="pie-chart" />
-            <span>Option 1</span>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <Icon type="desktop" />
-            <span>Option 2</span>
-          </Menu.Item>
-          <Menu.Item key="3">
-            <Icon type="inbox" />
-            <span>Option 3</span>
-          </Menu.Item>
-          <SubMenu key="sub1" title={<span><Icon type="mail" /><span>Navigation One</span></span>}>
-            <Menu.Item key="5">Option 5</Menu.Item>
-            <Menu.Item key="6">Option 6</Menu.Item>
-            <Menu.Item key="7">Option 7</Menu.Item>
-            <Menu.Item key="8">Option 8</Menu.Item>
-          </SubMenu>
-          <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>Navigation Two</span></span>}>
-            <Menu.Item key="9">Option 9</Menu.Item>
-            <Menu.Item key="10">Option 10</Menu.Item>
-            <SubMenu key="sub3" title="Submenu">
-              <Menu.Item key="11">Option 11</Menu.Item>
-              <Menu.Item key="12">Option 12</Menu.Item>
-            </SubMenu>
-          </SubMenu>
+          {
+            muneList.map((item)=>{
+              return (item.children && item.children.length) ? this.renderSubMenu(item) : this.renderMenuItem(item)
+            })
+          }
         </Menu>
       </div>
     )
