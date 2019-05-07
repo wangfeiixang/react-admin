@@ -1,0 +1,69 @@
+
+.layout-home{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .banner{
+    div{
+      width: 100%;
+      height: 100%;
+      background: #364d79;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      position: absolute;
+      z-index: 1;
+      &.active{
+        z-index: 10;
+      }
+    }
+  }
+  .banner-dot{
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span{
+      cursor: pointer;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0.3;
+      width: 20px; 
+      height: 20px; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 15px;
+      &.active{
+        opacity: 1;
+      }
+    }
+  }
+  .banner-btn{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    .btn-left, .btn-right{
+      position: absolute;
+      z-index: 200;
+      color: #fff;
+      width: 50%;
+      user-select: none;
+      // top: 48%;
+    }
+    .btn-left{
+      left: 0;
+    }
+    .btn-right{
+      text-align: right;
+      right: 0;
+    }
+  }
+}

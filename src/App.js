@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import Myrouter from './router'
 import Header from './layouts/Header/'
 import MenuNav from './layouts/Menu/'
+import { BackTop } from 'antd'
 import './App.less'
 
 class App extends Component {
@@ -21,11 +22,12 @@ class App extends Component {
     return (
       <div className="layout-app">
         <Header color="gold" changeCollapse={(b) => { this.changeMenuCollapsed(b) }}/>
-        <div className="layout-content">
+        <div className="layout-content" >
           <MenuNav isCollapsed= {this.state.menuCollapsed}/>
           <div className="layout-contentR">
             <Myrouter/>
           </div>
+          <BackTop />
         </div>
         <div className="layout-footer">
          React数据管理后台 ©2019 Created by wangfeixiang

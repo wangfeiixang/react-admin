@@ -7,8 +7,13 @@ const SubMenu = Menu.SubMenu
 
 const muneList = [
   {
-    icon: 'pie-chart',
+    icon: 'home',
     key: '/',
+    title: '主页'
+  },
+  {
+    icon: 'pie-chart',
+    key: '/echarts',
     title: 'echarts',
     children: [
       {
@@ -38,7 +43,7 @@ class MenuNav extends React.Component {
       theme: 'dark'
     }
   }
-
+  // 一级目录
   renderMenuItem = ({key, icon, title}) => {
     return (
       <Menu.Item key={key}>
@@ -50,7 +55,8 @@ class MenuNav extends React.Component {
     )
   }
 
-  renderSubMenu=({key, icon, title, children})=>{
+  // 多级目录
+  renderSubMenu = ({key, icon, title, children}) =>{
     return (
       <SubMenu key={key} title={<span><Icon type={icon} /><span>{title}</span></span>}>
         {
