@@ -18,20 +18,32 @@ const muneList = [
     children: [
       {
         icon: 'bar-chart',
-        key: '/barChart',
-        title: '柱状图'
+        key: '/echarts/barChart',
+        title: 'echarts柱状图'
       },
       {
         icon: 'line-chart',
-        key: '/lineChart',
-        title: '折线图'
+        key: '/echarts/lineChart',
+        title: 'echarts折线图'
       }
     ]
   },
   {
     icon: 'fund',
     key: '/highcharts',
-    title: 'highcharts'
+    title: 'highcharts',
+    children: [
+      {
+        icon: 'bar-chart',
+        key: '/highcharts/barChart',
+        title: 'highcharts柱状图'
+      },
+      {
+        icon: 'line-chart',
+        key: '/highcharts/lineChart',
+        title: 'highcharts折线图'
+      }
+    ]
   }
 ]
 
