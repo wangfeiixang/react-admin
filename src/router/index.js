@@ -2,7 +2,8 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 // import { Route, Switch, Redirect } from 'react-router-dom'
 import Home from '../components/home'
-import EchartsBar from '../components/echarts/bar/bar.js'
+import EchartsBar from '../components/echarts/bar'
+import EchartsLine from '../components/echarts/line'
 import MyHighcharts from '../components/highcharts'
 
 const MyEcharts = ({ match }) =>{
@@ -10,7 +11,7 @@ const MyEcharts = ({ match }) =>{
   return (
     <div style={{width: '100%', height:'100%'}}>
       <Route  path="/echarts/barChart" component={ EchartsBar } />
-      <Route  path="/echarts/lineChart"  render={() => <div>/echarts/lineChart</div>}/>
+      <Route  path="/echarts/lineChart" component={ EchartsLine }/>
     </div>
   )
 }
