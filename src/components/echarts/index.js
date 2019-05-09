@@ -11,8 +11,6 @@ import 'echarts/lib/chart/pie'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/title'
 
-import './index.less'
-
 class MyEcharts extends React.Component {
 
   constructor (props) {
