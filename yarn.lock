@@ -4721,6 +4721,11 @@ hex-color-regex@^1.1.0:
   resolved "http://r.cnpmjs.org/hex-color-regex/download/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha1-TAb8y0YC/iYCs8k9+C1+fb8aio4=
 
+highcharts@^7.1.1:
+  version "7.1.1"
+  resolved "http://r.cnpmjs.org/highcharts/download/highcharts-7.1.1.tgz#8c4433e39d5e7dbdc064685d9548181a35e12c19"
+  integrity sha1-jEQz451efb3AZGhdlUgYGjXhLBk=
+
 history@^4.9.0:
   version "4.9.0"
   resolved "http://r.cnpmjs.org/history/download/history-4.9.0.tgz#84587c2068039ead8af769e9d6a6860a14fa1bca"
