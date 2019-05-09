@@ -1,4 +1,7 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+
 import echarts from 'echarts/lib/echarts'
 import 'echarts/lib/chart/bar'
 import 'echarts/lib/chart/line'
@@ -7,6 +10,8 @@ import 'echarts/lib/chart/pie'
 // 引入提示框和标题组件
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/title'
+
+import './index.less'
 
 class MyEcharts extends React.Component {
 
@@ -27,7 +32,17 @@ class MyEcharts extends React.Component {
     myChart.resize()
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.isSwitch) {
+      let myChart = echarts.init(document.getElementById(this.props.id))
+      setTimeout(()=>{
+        myChart.resize()
+      },20)
+    }
+  }
+
   render () {
+    // console.log('echarts--render--', this.props)
     return (
       <div id={this.props.id} style={{width: '100%', height: this.props.height}}></div>
     )
@@ -35,4 +50,13 @@ class MyEcharts extends React.Component {
 
 }
 
-export default MyEcharts
+
+const mapStateToProps = state => {
+  // console.log('mapStateToProps--', state)
+  return {
+    isSwitch: state.changeSwitch.isSwitch
+  }
+}
+
+// export default MyEcharts
+export default withRouter(connect(mapStateToProps)(MyEcharts))

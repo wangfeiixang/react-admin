@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+
+import { touchSwitch } from './redux/actions'
 import Myrouter from './router'
+
 import Header from './layouts/Header/'
 import MenuNav from './layouts/Menu/'
+
 import { BackTop } from 'antd'
+
 import './App.less'
 
 class App extends Component {
@@ -16,9 +22,11 @@ class App extends Component {
 
   changeMenuCollapsed (b) {
     this.setState({ menuCollapsed: b })
+    this.props.dispatch(touchSwitch(b))
   }
 
   render () {
+    // console.log('render--componentDidMount--', this.props.isSwitch)
     return (
       <div className="layout-app">
         <Header color="gold" changeCollapse={(b) => { this.changeMenuCollapsed(b) }}/>
@@ -37,4 +45,11 @@ class App extends Component {
   }
 }
 
-export default withRouter(App)
+const mapStateToProps = state => {
+  // console.log('mapStateToProps--', state)
+  return {
+    isSwitch: state.changeSwitch.isSwitch
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(App))

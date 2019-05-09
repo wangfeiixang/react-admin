@@ -154,6 +154,10 @@ const stackOptions = {
 }
 
 class EchartsLine extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {}
+  }
 
   render () {
     return (
