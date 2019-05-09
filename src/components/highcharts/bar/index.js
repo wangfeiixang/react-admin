@@ -8,6 +8,9 @@ const basicOptions = {
   chart: {
     type: 'column'
   },
+  credits: {
+    enabled: false
+  },
   title: {
     text: '2015年1月-5月，各浏览器的市场份额'
   },
