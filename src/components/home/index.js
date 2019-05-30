@@ -76,13 +76,22 @@ class Home extends React.Component {
   }
 
   render () {
+    let imgUrl = process.env.PUBLIC_URL
     return (
       <div className="layout-home">
         <div className="banner">
-          <div style={{background:this.state.index === 1 ? '#364d79' : ''}} className={this.state.index === 1 ? 'active' : ''}>1</div>
-          <div style={{background:this.state.index === 2 ? '#e6ac23' : ''}} className={this.state.index === 2 ? 'active' : ''}>2</div>
-          <div style={{background:this.state.index === 3 ? '#a52121' : ''}} className={this.state.index === 3 ? 'active' : ''}>3</div>
-          <div style={{background:this.state.index === 4 ? '#753679' : ''}} className={this.state.index === 4 ? 'active' : ''}>4</div>
+          <div  className={this.state.index === 1 ? 'active' : ''}>
+            <img src={ imgUrl + '/images/banner01.jpg' }  alt=""/>
+          </div>
+          <div  className={this.state.index === 2 ? 'active' : ''}>
+            <img src={ imgUrl + '/images/banner02.jpg' } alt="" />
+          </div>
+          <div  className={this.state.index === 3 ? 'active' : ''}>
+            <img src={ imgUrl + '/images/banner03.jpg' }  alt=""/>
+          </div>
+          <div  className={this.state.index === 4 ? 'active' : ''}>
+            <img src={ imgUrl + '/images/banner04.jpg' }  alt=""/>
+          </div>
         </div>
         <div className="banner-dot" >
           <span onMouseOut={this.mouseout} onMouseOver={this.mouseover} onClick={()=> this.clickActive(1)} className={this.state.index === 1 ? 'active' : ''}>1</span>

@@ -87,9 +87,10 @@ class MenuNav extends React.Component {
     )
   }
 
-  rootSubmenuKeys = ['sub1', 'sub2']
+  rootSubmenuKeys = ['/echarts', '/highcharts']
 
   onOpenChange = (openKeys) => {
+    // console.log('onOpenChange--openKeys--', openKeys)
     const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1)
     if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
       this.setState({ openKeys })
